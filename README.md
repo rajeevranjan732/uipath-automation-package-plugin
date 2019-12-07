@@ -1,10 +1,10 @@
 # UiPath Plugin
 This plugin allows you to build and deploy UiPath automation processes.
 
-##UiPath Pack
+## UiPath Pack
 Can be used within a build sequence or a pipeline and does the packaging of one or more UiPath projects given their source code.
 
-###Versioning Method
+### Versioning Method
 The versioning of the package or packages that are created in this task can be done in two ways:
 * Using the Auto-generate the package version option that will pseudo-randomly generate a version following the same algorithm that UiPath Studio uses when publishing to Orchestrator.
 * Using custom versioning like {MAJOR}.${MINOR}.${BUILD_NUMBER}. Semantic versioning is supported.
@@ -24,20 +24,20 @@ This is where the NuGet packages that were produced by the plugin are going to b
 One possible path could be: ${JENKINS_HOME}\jobs\${JOB_NAME}\builds\${BUILD_NUMBER}\.<br>
 In this case, each build folder contains the NuGet package(s) that the build yelds.
 
-##UiPath Deploy
+## UiPath Deploy
 Enables you to deploy a process automation package or multiple to a specific Orchestrator tenant. The task requires the following information: the path from where to take the packages and of course Orchestrator related information: URL, tenant name, and user credentials to perform the API calls.<br>
 An example of Package(s) path is: ${JENKINS_HOME}\jobs\${JOB_NAME}\builds\${BUILD_NUMBER}\.<br>
 The UiPath Deploy task takes the latest version of each NuGet package from the specified folder and deletes the older ones.  keeping in the folder only the ones with the latest versions.
 
-##Using Environment Variables
+## Using Environment Variables
 You can use environment variables in all text boxes of both Pack and Deploy tasks. Use the following format: ${WORKSPACE}, ${JENKINS_HOME}, etc.
 
-##Prerequisites for the Build Agent Machine
+## Prerequisites for the Build Agent Machine
 1. A reachable Orchestrator instance at which the packages are to be deployed;
 2. SSL Certificate should be imported so the HTTPS calls to Orchestrator can be trusted;
 3. UiPath Robot, minimum version 18.3.2, installed in C:\Program Files (x86)\UiPath\Studio.
 
-##Known Limitations
+## Known Limitations
 * Blue Ocean pipelines
 
 ## Example of usage #1: Packing and deploying a build job
